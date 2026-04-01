@@ -1118,3 +1118,49 @@ main {
 .media-season-header:first-child {
   padding-top: 0;
 }
+
+/* ========== Mappoint Location Tags ========== */
+.icon-map-pin {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.mappoint-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.mappoint-tag-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.8125rem;
+  color: #d85f85;
+  transition: color 0.2s;
+}
+
+.mappoint-tag-item .icon-map-pin {
+  color: #d85f85;
+}
+
+.mappoint-tag-item:hover {
+  color: #c04870;
+}
+
+.mappoint-tag-item:hover .icon-map-pin {
+  color: #c04870;
+}
+
+/* page-title 中的 map-pin 图标 */
+.page-title .icon-map-pin {
+  width: 20px;
+  height: 20px;
+  color: #d85f85;
+  vertical-align: text-bottom;
+  margin-right: 4px;
+}
