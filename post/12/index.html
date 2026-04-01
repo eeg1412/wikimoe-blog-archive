@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【jQuery】加载完后显示内容 - 维基萌博客档案馆</title>
+  <meta name="description" content="CSS: .newsloader-bg { display: none; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; background: #eee; z-index: 1; } .newsloader { display: none; position: absolute; top: 50%; left">
+  <meta name="keywords" content="JavaScript,blog,personal">
+  <meta name="author" content="广树">
+  <link rel="canonical" href="https://eeg1412.github.io/wikimoe-blog-archive/post/12/">
+  <link rel="stylesheet" href="https://eeg1412.github.io/wikimoe-blog-archive/css/style.css">
+  <link rel="stylesheet" href="https://eeg1412.github.io/wikimoe-blog-archive/glightbox/glightbox.min.css">
+  <link rel="alternate" type="application/rss+xml" title="维基萌博客档案馆" href="https://eeg1412.github.io/wikimoe-blog-archive/feed.xml">
+  <meta property="og:title" content="【jQuery】加载完后显示内容 - 维基萌博客档案馆">
+  <meta property="og:description" content="CSS: .newsloader-bg { display: none; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; background: #eee; z-index: 1; } .newsloader { display: none; position: absolute; top: 50%; left">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://eeg1412.github.io/wikimoe-blog-archive/post/12/">
+  <meta property="og:site_name" content="维基萌博客档案馆">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1><a href="https://eeg1412.github.io/wikimoe-blog-archive/">维基萌博客档案馆</a></h1>
+      <p class="site-desc">用于维基萌博客的存档 源站：https://www.wikimoe.com</p>
+      <nav class="site-nav">
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/">首页</a>
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-trigger">页面 ▾</span>
+          <div class="nav-dropdown-menu">
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/bangumi/">番剧</a>
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/book/">阅读</a>
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/game/">游戏</a>
+            <a href="https://eeg1412.github.io/wikimoe-blog-archive/movie/">剧场版</a>
+          </div>
+        </div>
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/categories/">分类</a>
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/tags/">标签</a>
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/feed.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      
+    <article class="post-detail">
+      <div class="post-header">
+        <h1>【jQuery】加载完后显示内容</h1>
+        <div class="post-meta">
+          <span class="post-type-badge blog">博文</span>
+          <span>作者：广树</span>
+          <span>时间：<time datetime="2016-02-12T13:35:13.000Z">2016-02-12 22:35</time></span>
+          <span>分类：<a href="https://eeg1412.github.io/wikimoe-blog-archive/category/JavaScript_jQuery/">JavaScript</a></span>
+        </div>
+      </div>
+      <div class="post-content">
+        <div class="rich-content"><p>
+	&nbsp; &nbsp;
+	CSS:
+</p>
+<p>
+	<br>
+</p>
+<pre class="prettyprint lang-css linenums">.newsloader-bg&nbsp;{
+	display:&nbsp;none;
+	position:&nbsp;absolute;
+	width:&nbsp;100%;
+	height:&nbsp;100%;
+	top:&nbsp;0px;
+	left:&nbsp;0px;
+	background:&nbsp;#eee;
+	z-index:&nbsp;1;
+}
+.newsloader&nbsp;{
+	display:&nbsp;none;
+	position:&nbsp;absolute;
+	top:&nbsp;50%;
+	left:&nbsp;50%;
+	width:&nbsp;200px;
+	height:&nbsp;200px;
+	margin-top:&nbsp;-100px;
+	margin-left:&nbsp;-100px;
+	text-align:&nbsp;center;
+	color:&nbsp;#999;
+	z-index:&nbsp;2;
+}
+.jpnews-jp,&nbsp;.usanews-en&nbsp;{
+	background-color:&nbsp;#FFFFFF;
+	border-radius:&nbsp;10px;
+	text-align:&nbsp;center;
+	vertical-align:&nbsp;middle;
+	-webkit-box-shadow:&nbsp;0px&nbsp;0px&nbsp;6px&nbsp;0px&nbsp;#333;
+	box-shadow:&nbsp;0px&nbsp;0px&nbsp;6px&nbsp;0px&nbsp;#333;
+	width:&nbsp;780px;
+	height:&nbsp;700px;
+	position:relative;
+}
+.jpnews-jp&nbsp;.close-x,&nbsp;.usanews-en&nbsp;.close-x&nbsp;{
+	text-align:&nbsp;right;
+	height:&nbsp;35px;
+	padding-top:&nbsp;15px;
+	padding-right:&nbsp;15px;
+	z-index:&nbsp;3;
+	position:relative;
+}</pre>
+<p>
+	<br>
+</p>
+<p>
+	&nbsp; &nbsp;
+	HTML:
+</p>
+<p>
+	<br>
+</p>
+<pre class="prettyprint lang-html linenums">&lt;div&nbsp;class="jpnews-jp"&gt;
+&lt;div&nbsp;class="newsloader-bg"&gt;
+&nbsp;&nbsp;&lt;div&nbsp;class="newsloader"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;img&nbsp;src="http://imgout.ph.126.net/47161134/loading.jpg"&nbsp;height="40"&nbsp;alt="Now&nbsp;Loading..."&nbsp;/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;努力获取中...&lt;/p&gt;
+&nbsp;&nbsp;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&nbsp;class="wrap"&gt;
+&lt;div&nbsp;style="width:780px;height:630px;"&gt;
+需要显示的正文内容
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</pre>
+<p>
+	<br>
+</p>
+<p>
+	<br>
+</p>
+<p>
+	&nbsp; &nbsp;
+	JS脚本：
+</p>
+<pre class="prettyprint lang-js linenums">&lt;script&gt;
+$(function()&nbsp;{
+&nbsp;&nbsp;$('.newsloader-bg&nbsp;,.newsloader').css('display','block');
+});
+&nbsp;
+$(window).load(function&nbsp;()&nbsp;{&nbsp;//全部加载完后执行
+&nbsp;&nbsp;$('.newsloader-bg').delay(900).fadeOut(800);
+&nbsp;&nbsp;$('.newsloader').delay(600).fadeOut(300);
+&nbsp;&nbsp;$('.wrap').css('display',&nbsp;'block');
+});
+&nbsp;
+//经过一定时间后如果还未加载完则强制显示内容
+$(function(){
+&nbsp;&nbsp;setTimeout('stopload()',240000);/*设置时间*/
+});
+&nbsp;
+function&nbsp;stopload(){
+&nbsp;&nbsp;$('.wrap').css('display','block');
+&nbsp;&nbsp;$('.newsloader-bg').delay(900).fadeOut(800);
+&nbsp;&nbsp;$('.newsloader').delay(600).fadeOut(300);
+}
+&lt;/script&gt;</pre>
+<p>
+	<br>
+</p></div>
+      </div>
+      
+      <div class="post-footer">
+        <a href="https://eeg1412.github.io/wikimoe-blog-archive/">&laquo; 返回首页</a>
+      </div>
+    </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="copyright-year"></span> 维基萌博客档案馆</p>
+    </div>
+  </footer>
+  <script>document.getElementById('copyright-year').textContent = new Date().getFullYear()</script>
+  <script src="https://eeg1412.github.io/wikimoe-blog-archive/glightbox/glightbox.min.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 导航下拉菜单：点击触发器展开，点击外部关闭
+    var dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(function(dropdown) {
+      var trigger = dropdown.querySelector('.nav-dropdown-trigger');
+      if (trigger) {
+        trigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdown.classList.toggle('open');
+        });
+      }
+    });
+    document.addEventListener('click', function() {
+      dropdowns.forEach(function(d) { d.classList.remove('open'); });
+    });
+    document.querySelectorAll('.nav-dropdown-menu').forEach(function(menu) {
+      menu.addEventListener('click', function(e) { e.stopPropagation(); });
+    });
+    document.querySelectorAll('.rich-content img').forEach(function(img) {
+      if (img.closest('a')) return;
+      var href = img.getAttribute('data-href') || img.src;
+      if (!href) return;
+      var a = document.createElement('a');
+      a.href = href;
+      a.className = 'glightbox';
+      img.parentNode.insertBefore(a, img);
+      a.appendChild(img);
+    });
+    document.querySelectorAll('.rich-content video').forEach(function(video) {
+      if (video.closest('a')) return;
+      var sourceEl = video.querySelector('source');
+      var src = video.getAttribute('src') || (sourceEl && sourceEl.getAttribute('src'));
+      if (!src) return;
+      var a = document.createElement('a');
+      a.href = src;
+      a.className = 'glightbox';
+      a.setAttribute('data-type', 'video');
+      video.parentNode.insertBefore(a, video);
+      a.appendChild(video);
+    });
+    GLightbox({ selector: '.glightbox' });
+    document.querySelectorAll('.post-card[data-href]').forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('a')) return;
+        window.location.href = card.dataset.href;
+      });
+    });
+  });
+  </script>
+</body>
+</html>
